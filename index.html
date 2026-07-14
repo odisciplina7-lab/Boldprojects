@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050505" />
+  <meta name="description" content="Bold Sites — sites profissionais, rápidos e focados em conversão para transformar negócios em marcas que vendem todos os dias." />
+  <meta property="og:title" content="Bold Sites — Sites profissionais que vendem" />
+  <meta property="og:description" content="Criação de sites profissionais, rápidos, responsivos e focados em gerar clientes." />
+  <meta property="og:type" content="website" />
+  <title>Bold Sites — Sites profissionais que vendem</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#050505;
+      --panel:#0d0d10;
+      --panel-2:#11111a;
+      --line:rgba(255,255,255,.12);
+      --text:#f5f5f7;
+      --muted:#9a9aa2;
+      --blue:#315cff;
+      --purple:#8a35ff;
+      --green:#25d366;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 50% 15%, rgba(80,86,255,.08), transparent 26%),
+        var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    a{text-decoration:none;color:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}
+    img{max-width:100%;display:block}
+
+    .container{
+      width:min(calc(100% - 40px),var(--max));
+      margin-inline:auto;
+    }
+
+    .nav-shell{
+      position:fixed;
+      z-index:1000;
+      top:14px;
+      left:50%;
+      transform:translateX(-50%);
+      width:min(calc(100% - 24px),1180px);
+    }
+
+    .nav{
+      height:64px;
+      padding:0 14px 0 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border:1px solid var(--line);
+      background:rgba(12,12,15,.78);
+      backdrop-filter:blur(18px);
+      border-radius:999px;
+      box-shadow:0 18px 50px rgba(0,0,0,.35);
+    }
+
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800}
+    .brand-mark{
+      width:34px;height:34px;border-radius:10px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,#111827,#201b3d);
+      border:1px solid rgba(255,255,255,.1);
+      font-size:12px;
+      letter-spacing:-1px;
+    }
+
+    .nav-links{display:flex;align-items:center;gap:34px;color:#b8b8bf;font-size:14px;font-weight:600}
+    .nav-links a:hover{color:#fff}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:48px;
+      padding:0 24px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:700;
+      border:1px solid transparent;
+      transition:.25s ease;
+      cursor:pointer;
+    }
+    .btn-primary{
+      color:#fff;
+      background:linear-gradient(100deg,var(--blue),var(--purple));
+      box-shadow:0 14px 40px rgba(83,62,255,.24);
+    }
+    .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .btn-outline{border-color:var(--line);background:#0a0a0d;color:#f4f4f5}
+    .btn-outline:hover{border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
+    .btn-whatsapp{background:var(--green);color:#071c0d;box-shadow:0 14px 40px rgba(37,211,102,.18)}
+
+    .hero{
+      min-height:860px;
+      display:grid;
+      place-items:center;
+      padding:150px 0 90px;
+      text-align:center;
+      position:relative;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:650px;height:220px;
+      left:50%;bottom:40px;transform:translateX(-50%);
+      background:radial-gradient(ellipse,rgba(66,71,255,.16),transparent 67%);
+      filter:blur(20px);
+      pointer-events:none;
+    }
+
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      padding:7px 13px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:#b8b8c0;
+      font-size:12px;
+      background:rgba(255,255,255,.025);
+    }
+    .dot{width:7px;height:7px;border-radius:50%;background:#3765ff;box-shadow:0 0 16px #3765ff}
+
+    h1{
+      max-width:960px;
+      margin:28px auto 22px;
+      font-size:clamp(52px,8vw,96px);
+      line-height:.96;
+      letter-spacing:-.065em;
+    }
+    .gradient-text{
+      background:linear-gradient(90deg,#8da8ff,#c38cff);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .hero p{
+      max-width:730px;margin:0 auto;
+      color:var(--muted);
+      font-size:clamp(16px,2vw,20px);
+      line-height:1.55;
+    }
+    .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+
+    section{padding:110px 0}
+    .section-head{text-align:center;max-width:760px;margin:0 auto 54px}
+    .section-head h2,.projects-head h2{
+      font-size:clamp(38px,5vw,58px);
+      line-height:1;
+      letter-spacing:-.045em;
+      margin:0 0 18px;
+    }
+    .section-head p,.projects-head p{
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.55;
+      margin:0;
+    }
+
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.018));
+      border-radius:24px;
+      padding:28px;
+      min-height:190px;
+      transition:.28s ease;
+    }
+    .card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.24);background:rgba(255,255,255,.045)}
+    .icon{
+      width:42px;height:42px;border-radius:13px;
+      display:grid;place-items:center;
+      border:1px solid var(--line);
+      background:#0c0c11;
+      font-size:20px;
+      margin-bottom:28px;
+    }
+    .card h3{font-size:18px;margin:0 0 10px}
+    .card p{margin:0;color:var(--muted);line-height:1.55;font-size:14px}
+
+    .projects-head{margin-bottom:46px}
+    .projects-head h2{text-align:left}
+    .projects-head p{max-width:680px}
+    .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+
+    .project{
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:26px;
+      background:#0c0c0f;
+      transition:.3s ease;
+    }
+    .project:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.25)}
+    .project-visual{
+      min-height:300px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:34px;
+      position:relative;
+      overflow:hidden;
+    }
+    .project-visual::before{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(135deg,rgba(255,255,255,.05),transparent 50%);
+    }
+    .v1{background:radial-gradient(circle at 20% 15%,#364cff55,transparent 35%),linear-gradient(135deg,#11172e,#130d2d)}
+    .v2{background:radial-gradient(circle at 75% 25%,#00bfff44,transparent 32%),linear-gradient(135deg,#111923,#071322)}
+    .v3{background:radial-gradient(circle at 30% 30%,#ff68d744,transparent 35%),linear-gradient(135deg,#2a1025,#140b16)}
+    .v4{background:radial-gradient(circle at 70% 20%,#ffb13b44,transparent 35%),linear-gradient(135deg,#28180c,#130d08)}
+
+    .browser{
+      width:92%;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:18px;
+      background:#08080b;
+      box-shadow:0 26px 70px rgba(0,0,0,.45);
+      overflow:hidden;
+      position:relative;
+      z-index:1;
+    }
+    .browser-top{height:34px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 12px}
+    .browser-top i{width:7px;height:7px;border-radius:50%;background:#5c5c66}
+    .browser-body{height:150px;display:grid;place-items:center;text-align:center;padding:20px}
+    .browser-body strong{font-size:clamp(20px,3vw,34px);letter-spacing:-.04em}
+    .browser-body span{display:block;color:#9797a1;font-size:12px;margin-top:9px}
+
+    .project-info{padding:24px}
+    .project-row{display:flex;justify-content:space-between;gap:14px;align-items:center}
+    .tag{border:1px solid var(--line);padding:6px 10px;border-radius:999px;color:#b9b9c0;font-size:12px}
+    .project-link{font-size:13px;font-weight:700;color:#d7d7dc}
+    .project-info h3{font-size:22px;margin:18px 0 8px}
+    .project-info p{color:var(--muted);line-height:1.55;margin:0;font-size:14px}
+
+    .pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .pricing-grid .card{min-height:210px}
+    .label{font-size:11px;color:#76767f;font-weight:800;letter-spacing:.13em}
+    .pricing-grid h3{font-size:19px;margin-top:18px}
+
+    .cta{
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:64px;
+      background:
+        radial-gradient(circle at 15% 50%,rgba(71,86,255,.20),transparent 34%),
+        linear-gradient(135deg,#111227,#15142e);
+      display:flex;
+      justify-content:space-between;
+      gap:40px;
+      align-items:center;
+    }
+    .cta h2{font-size:clamp(34px,5vw,54px);letter-spacing:-.045em;line-height:1.03;margin:0 0 16px}
+    .cta p{color:#b2b2bd;max-width:650px;line-height:1.55;margin:0}
+
+    footer{padding:30px 0 50px;color:#777780;font-size:13px}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:26px}
+
+    .floating-whatsapp{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:999;
+      width:58px;height:58px;
+      border-radius:50%;
+      display:grid;place-items:center;
+      background:#25d366;
+      color:#061b0c;
+      font-size:25px;
+      box-shadow:0 16px 40px rgba(37,211,102,.35);
+      transition:.2s ease;
+    }
+    .floating-whatsapp:hover{transform:scale(1.08)}
+
+    .menu-btn{display:none;background:none;border:0;color:white;font-size:24px}
+
+    @media (max-width:900px){
+      .nav-links{display:none}
+      .menu-btn{display:block}
+      .nav .desktop-cta{display:none}
+      .feature-grid{grid-template-columns:repeat(2,1fr)}
+      .pricing-grid{grid-template-columns:repeat(2,1fr)}
+      .project-grid{grid-template-columns:1fr}
+      .cta{padding:46px 34px;display:block}
+      .cta .btn{margin-top:28px}
+      .hero{min-height:auto;padding-top:150px}
+    }
+
+    @media (max-width:600px){
+      .container{width:min(calc(100% - 24px),var(--max))}
+      .nav-shell{top:8px}
+      .nav{height:58px}
+      h1{font-size:47px}
+      .hero{padding-bottom:70px}
+      section{padding:78px 0}
+      .feature-grid,.pricing-grid{grid-template-columns:1fr}
+      .card{min-height:auto}
+      .project-visual{min-height:230px;padding:18px}
+      .browser{width:100%}
+      .cta{padding:34px 24px}
+      .footer-row{flex-direction:column}
+      .floating-whatsapp{width:54px;height:54px}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav-shell">
+    <nav class="nav">
+      <a href="#inicio" class="brand" aria-label="Bold Sites">
+        <span class="brand-mark">bᴏʟᴅ</span>
+        <span>Bold Sites</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#projetos">Projetos</a>
+        <a href="#diferenciais">O que fazemos</a>
+        <a href="#servicos">Serviços</a>
+      </div>
+
+      <a class="btn btn-primary desktop-cta" href="https://wa.me/5511925835553?text=Olá%20Bold%20Sites!%20Quero%20um%20orçamento%20para%20meu%20site." target="_blank" rel="noopener">
+        Quero um orçamento <span>→</span>
+      </a>
+
+      <button class="menu-btn" aria-label="Abrir menu" onclick="document.querySelector('#projetos').scrollIntoView()">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <span class="eyebrow"><span class="dot"></span> Consultoria digital de alto padrão</span>
+        <h1>
+          Transformamos <span class="gradient-text">empresas comuns</span><br>
+          em negócios que vendem todos os dias.
+        </h1>
+        <p>Sites profissionais desenvolvidos para gerar confiança, atrair clientes e aumentar o faturamento da sua empresa.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/5511925835553?text=Olá%20Bold%20Sites!%20Quero%20receber%20um%20orçamento." target="_blank" rel="noopener">
+            Quero um orçamento <span>→</span>
+          </a>
+          <a class="btn btn-outline" href="#projetos">Ver nossos projetos</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="diferenciais">
+      <div class="container">
+        <div class="section-head">
+          <h2>O que faz a <span class="gradient-text">Bold Sites</span> diferente</h2>
+          <p>Cada projeto é construído com padrão profissional e entregue com atenção aos detalhes, desempenho e resultado.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="card">
+            <div class="icon">↗</div>
+            <h3>Foco em conversão</h3>
+            <p>Cada seção é planejada para gerar contatos, pedidos, orçamentos e novas vendas.</p>
+          </article>
+          <article class="card">
+            <div class="icon">⌕</div>
+            <h3>SEO desde o início</h3>
+            <p>Estrutura preparada para o Google entender melhor sua empresa e seus serviços.</p>
+          </article>
+          <article class="card">
+            <div class="icon">▣</div>
+            <h3>Performance mobile</h3>
+            <p>Experiência rápida e impecável no celular, onde a maioria dos clientes acessa.</p>
+          </article>
+          <article class="card">
+            <div class="icon">♢</div>
+            <h3>Segurança</h3>
+            <p>Hospedagem moderna, certificado SSL e boas práticas de desenvolvimento.</p>
+          </article>
+          <article class="card">
+            <div class="icon">ϟ</div>
+            <h3>Microanimações</h3>
+            <p>Movimentos suaves que deixam a navegação mais premium sem pesar o site.</p>
+          </article>
+          <article class="card">
+            <div class="icon">✣</div>
+            <h3>Design sob medida</h3>
+            <p>Nada de aparência genérica. Cada projeto nasce da identidade do seu negócio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <div class="container">
+        <div class="projects-head">
+          <h2>Projetos <span class="gradient-text">selecionados</span></h2>
+          <p>Uma amostra de experiências digitais desenvolvidas para negócios de diferentes segmentos.</p>
+        </div>
+
+        <div class="project-grid">
+          <a class="project" href="https://bold-project-wheat.vercel.app/" target="_blank" rel="noopener">
+            <div class="project-visual v1">
+              <div class="browser">
+                <div class="browser-top"><i></i><i></i><i></i></div>
+                <div class="browser-body"><div><strong>Bold Project</strong><span>Experiência digital premium</span></div></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-row"><span class="tag">Institucional</span><span class="project-link">Ver projeto →</span></div>
+              <h3>Bold Project</h3>
+              <p>Projeto moderno com foco em posicionamento, impacto visual e apresentação profissional.</p>
+            </div>
+          </a>
+
+          <a class="project" href="https://mr-repair-fixed.vercel.app" target="_blank" rel="noopener">
+            <div class="project-visual v2">
+              <div class="browser">
+                <div class="browser-top"><i></i><i></i><i></i></div>
+                <div class="browser-body"><div><strong>MR Repair</strong><span>Produtos e assistência técnica</span></div></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-row"><span class="tag">Tecnologia</span><span class="project-link">Ver projeto →</span></div>
+              <h3>MR Repair</h3>
+              <p>Landing page premium para apresentar produtos, serviços e gerar contatos pelo WhatsApp.</p>
+            </div>
+          </a>
+
+          <a class="project" href="https://kauany-nails.vercel.app/#inicio" target="_blank" rel="noopener">
+            <div class="project-visual v3">
+              <div class="browser">
+                <div class="browser-top"><i></i><i></i><i></i></div>
+                <div class="browser-body"><div><strong>Kauany Nails</strong><span>Beleza, agenda e atendimento</span></div></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-row"><span class="tag">Beleza</span><span class="project-link">Ver projeto →</span></div>
+              <h3>Kauany Nails</h3>
+              <p>Site elegante para mostrar serviços, fortalecer a marca e facilitar novos agendamentos.</p>
+            </div>
+          </a>
+
+          <a class="project" href="https://villa-celebrations-hub.vercel.app/" target="_blank" rel="noopener">
+            <div class="project-visual v4">
+              <div class="browser">
+                <div class="browser-top"><i></i><i></i><i></i></div>
+                <div class="browser-body"><div><strong>Villa Celebrations</strong><span>Eventos e experiências memoráveis</span></div></div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-row"><span class="tag">Eventos</span><span class="project-link">Ver projeto →</span></div>
+              <h3>Villa Celebrations</h3>
+              <p>Experiência visual marcante para apresentar o espaço, eventos e gerar solicitações.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="container">
+        <div class="section-head">
+          <h2>Cada projeto é <span class="gradient-text">único</span></h2>
+          <p>O orçamento depende do objetivo, das funções necessárias e do nível de personalização do projeto.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="card">
+            <span class="label">SERVIÇO</span>
+            <h3>Landing Pages</h3>
+            <p>Uma página focada em conversão para campanhas, lançamentos e captação de clientes.</p>
+          </article>
+          <article class="card">
+            <span class="label">SERVIÇO</span>
+            <h3>Sites Institucionais</h3>
+            <p>Presença completa para transmitir confiança, autoridade e profissionalismo.</p>
+          </article>
+          <article class="card">
+            <span class="label">SERVIÇO</span>
+            <h3>Catálogos</h3>
+            <p>Vitrine digital dos seus produtos ou serviços, com contato direto e navegação fácil.</p>
+          </article>
+          <article class="card">
+            <span class="label">SERVIÇO</span>
+            <h3>Lojas Virtuais</h3>
+            <p>Estrutura completa para vender produtos, organizar pedidos e receber pagamentos.</p>
+          </article>
+        </div>
+
+        <div style="text-align:center;margin-top:46px">
+          <a class="btn btn-primary" href="https://wa.me/5511925835553?text=Olá%20Bold%20Sites!%20Gostaria%20de%20falar%20com%20um%20consultor." target="_blank" rel="noopener">
+            Falar com um consultor <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2>Pronto para ter um site à altura do seu negócio?</h2>
+            <p>Converse com a Bold Sites e receba uma visão clara de como podemos transformar sua presença digital.</p>
+          </div>
+          <a class="btn btn-whatsapp" href="https://wa.me/5511925835553?text=Olá%20Bold%20Sites!%20Quero%20iniciar%20uma%20conversa%20sobre%20meu%20site." target="_blank" rel="noopener">
+            Iniciar conversa <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>© 2026 Bold Sites. Todos os direitos reservados.</span>
+      <span>Sites profissionais para negócios que querem crescer.</span>
+    </div>
+  </footer>
+
+  <a class="floating-whatsapp" href="https://wa.me/5511925835553?text=Olá%20Bold%20Sites!%20Vim%20pelo%20site%20e%20quero%20mais%20informações." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">✆</a>
+
+  <script>
+    const revealItems = document.querySelectorAll('.card, .project, .cta');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.animate(
+            [
+              {opacity:0, transform:'translateY(24px)'},
+              {opacity:1, transform:'translateY(0)'}
+            ],
+            {duration:650, easing:'cubic-bezier(.2,.7,.2,1)', fill:'both'}
+          );
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.12});
+
+    revealItems.forEach(item => observer.observe(item));
+  </script>
+</body>
+</html>
